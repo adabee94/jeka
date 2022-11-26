@@ -1,5 +1,5 @@
-You need a JDK 8 or higher installed on your machine. 
-To determine the JDK to run upon, _jeka_ looks in priority order :
+You must have a JDK 8 or higher installed on your machine. 
+To determine the JDK to run, _jeka_ prioritizes the following, in order :
 
 * _JEKA_JDK_ environment variable ([_JEKA_JDK_]/bin/java must point on _java_ executable)
 * _JAVA_HOME_ environment variable 
@@ -8,24 +8,24 @@ To determine the JDK to run upon, _jeka_ looks in priority order :
 !!! note
     _Jeka_ organization provides a [plugin](https://plugins.jetbrains.com/plugin/13489-jeka/) for IntelliJ in order to make the following tasks useless. 
 
-    Here, we'll focus only on how to do it using command line only.
+    Here, we'll focus on how to do it using command line only.
 
-There are two ways of using _jeka_ : by installing _Jeka_ itself or by using a project already containing the _Jeka_ wrapper.
+There are two ways of using _jeka_ : by installing _Jeka_ itself, or by using a project already containing the _Jeka_ wrapper.
 
 ## Install Jeka Distribution
 
 !!! note
     It is not required to install _Jeka_ distribution to use it. If you fetch a project already holding a wrapper, using `jekaw` would be enough.
-    Nevertheless, if you want to create project from scractch, it will be required.
+    Nevertheless, if you want to create project from scratch, it will be required.
 
-* Download the latest release from [here](https://search.maven.org/search?q=g:%22dev.jeka%22%20AND%20a:%22jeka-core%22)
+* Download the latest release [here](https://search.maven.org/search?q=g:%22dev.jeka%22%20AND%20a:%22jeka-core%22)
   and unpack the _distrib.zip_ wherever you want on your machine. We'll refer to this directory as [JEKA HOME].
 * Add [JEKA HOME] to your _PATH_ environment variable.
 * Now, you can use `jeka` command from everywhere.
 
 ## Projects with Jeka Wrapper
 
-For working on a project already holding a Jeka wrapper, there is no need to install Jeka :
+To work on a project already holding a Jeka wrapper, there is no need to install Jeka :
 
 * Fetch the project from its remote repository
 * Use `jekaw` command from project root path.
@@ -42,18 +42,18 @@ For working on a project already holding a Jeka wrapper, there is no need to ins
 
 ## Hello World Project 
 
-For simplicity's sake, we'll use trivial example just displaying a message on console.
+For simplicity's sake, we'll use the basic example of displaying a message on the console.
 
 ### Create Project Structure
 
 * Create the root dir of the project or use the _template wrapper project_ mentioned above. 
 * At project root, execute `jeka scaffold#run scaffold#wrapper` (or just `jekaw scaffold#run` if using the template wrapper project).
 * Execute `jeka intellij#iml` or `jeka eclipse#files` in order to generate IDE configuration file. 
-* The project with a _Jeka_ structure and a basic build class is ready to work within your IDE
+* The project with a _Jeka_ structure and a basic build class is ready to work within your IDE.
 
 ### Create a Jeka Method
 
-Jeka methods require to be zero-args instance methods returning `void`. 
+Jeka methods must be zero-args instance methods returning `void`. 
 
 Modify the _def/Build.java_ file to ad _hello_ method as follow.
 
@@ -76,25 +76,25 @@ class Build extends JkBean {
 }
 ```
 
-Now, execute `jeka hello` to see message displayed on console.
+Now, execute `jeka hello` to see message displayed on the console.
 
 Optionally, we can use a classical `main` method to launch it from the IDE.  
 
 
 ### Get Contextual Help
 
-Execute `jeka -h` (or `jeka -help`) to display a contextual help on the console.
+Execute `jeka -h` (or `jeka -help`) to display contextual help on the console.
 
 Follow instructions to navigate to more specific help context.
 
 !!! warning
-    Do not confuse `jeka -help` and `jeka help`. The last provides only documentation about the default _KBean_.
+    Do not confuse `jeka -help` and `jeka help`. The latter only provides documentation about the default _KBean_.
 
 ## Customization
 
-For any reasons, we might use different location than the standard ones for _Jeka User Home_ and _Jeka Cache_.
+For any reason, we might use different location than the standard for _Jeka User Home_ and _Jeka Cache_.
 
-We can change the location using following OS environment variable :
+We can change the location using the following OS environment variable :
 
   * `JEKA_USER_HOME` : to set the _Jeka User Home_ to a specified location (absolute path).
   * `JEKA_CACHE_DIR` : to set the cache (mainly all downloaded files), to a specified location (absolute path)
